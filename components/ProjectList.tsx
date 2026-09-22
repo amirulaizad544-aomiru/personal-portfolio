@@ -5,13 +5,11 @@ import { ProjectCard } from "./ProjectCard";
 import type { Project } from "@/lib/types";
 
 /**
- * Full-width vertical list of project banners. One is open at a time and the
- * first is open by default. Render it outside a max-width container.
+ * Full-width vertical list of project banners. One is open at a time and none
+ * is open by default. Render it outside a max-width container.
  */
 export function ProjectList({ projects }: { projects: Project[] }) {
-  const [openSlug, setOpenSlug] = useState<string | null>(
-    projects[0]?.slug ?? null,
-  );
+  const [openSlug, setOpenSlug] = useState<string | null>(null);
 
   return (
     <ul className="border-b border-border">

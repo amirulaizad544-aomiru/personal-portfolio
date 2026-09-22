@@ -47,8 +47,8 @@ export function Contact() {
       title="Let's talk"
       description="I'm open to Software Developer and AI Developer opportunities. If you're hiring or want to talk about a project, get in touch."
     >
-      <div className="mx-auto grid max-w-5xl gap-8 text-left lg:grid-cols-5">
-        <ul className="space-y-3 lg:col-span-2 lg:self-start">
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 text-left lg:grid-cols-5">
+        <ul className="min-w-0 space-y-3 lg:col-span-2 lg:self-start">
           {contacts.map(({ label, value, href, Icon, hint }) => (
             <li key={label}>
               {href && value ? (
@@ -78,7 +78,7 @@ export function Contact() {
           ))}
         </ul>
 
-        <div className="lg:col-span-3">
+        <div className="min-w-0 lg:col-span-3">
           <ScrollPreview
             image={site.linkedinPreview}
             href={site.linkedin}
