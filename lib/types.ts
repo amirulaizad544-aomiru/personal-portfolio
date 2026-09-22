@@ -39,6 +39,10 @@ export interface Project {
   image: string | null;
   repoUrl: string | null;
   demoUrl: string | null;
+  /** Overrides the demo link's button label (default "Live demo"), e.g. "Download APK". */
+  demoLabel?: string;
+  /** Hides the GitHub/demo link buttons entirely, instead of showing "TBA" placeholders. */
+  hideLinks?: boolean;
   award?: string;
   sdgs?: string[];
 
@@ -50,8 +54,8 @@ export interface Project {
   demonstrates?: string[];
   contribution: string | null;
   architecture: ArchitectureItem[] | null;
-  /** Paths under /public. Empty means "not added yet". */
-  screenshots: string[];
+  /** Paths under /public. Empty means "not added yet"; null means the project has none to show. */
+  screenshots: string[] | null;
   challenges: string | null;
   learned: string | null;
 }

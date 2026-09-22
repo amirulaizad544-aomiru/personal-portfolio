@@ -49,7 +49,7 @@ export function ProjectLinks({ project }: { project: Project }) {
       />
       <LinkButton
         href={project.demoUrl}
-        label="Live demo"
+        label={project.demoLabel ?? "Live demo"}
         icon={<ExternalLink className="size-3.5" aria-hidden="true" />}
       />
     </div>

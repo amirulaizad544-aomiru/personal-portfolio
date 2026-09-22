@@ -76,6 +76,7 @@ export function Education() {
                   label={`${group.title} photos`}
                   altPrefix={`${group.title} photo`}
                   placeholderHint="add to public/assets/activities/ and list in data/education.ts"
+                  fixedSize
                 />
               </div>
             )}

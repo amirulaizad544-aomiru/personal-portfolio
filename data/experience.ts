@@ -3,16 +3,16 @@ import type { Experience } from "@/lib/types";
 // Only what was provided (resume + brief). `null` renders as a placeholder, so
 // nothing is guessed. Newest first.
 export const experience: Experience[] = [
-  {
-    role: "Software Developer",
-    company: null, // TODO: add employer name (or leave as a placeholder)
-    period: null, // TODO: add start date, e.g. "September 2026 – Present"
-    highlights: [
-      "Started working as a software developer.",
-      // TODO: add real responsibilities, only ones you can stand behind.
-    ],
-    technologies: [],
-  },
+  // {
+  //   role: "Software Developer",
+  //   company: null, // TODO: add employer name (or leave as a placeholder)
+  //   period: null, // TODO: add start date, e.g. "September 2026 – Present"
+  //   highlights: [
+  //     "Started working as a software developer.",
+  //     // TODO: add real responsibilities, only ones you can stand behind.
+  //   ],
+  //   technologies: [],
+  // },
   {
     role: "Software Engineer Intern",
     company: "Kasatria Analytics Sdn. Bhd.",

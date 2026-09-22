@@ -2,7 +2,7 @@ import { site } from "@/data/site";
 import { GithubIcon, LinkedinIcon } from "./icons";
 
 const socials = [
-  { label: "GitHub", href: site.github, Icon: GithubIcon },
+  // { label: "GitHub", href: site.github, Icon: GithubIcon },
   { label: "LinkedIn", href: site.linkedin, Icon: LinkedinIcon },
 ];
 

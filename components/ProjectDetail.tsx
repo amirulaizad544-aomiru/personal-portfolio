@@ -102,9 +102,11 @@ export function ProjectDetail({ project }: { project: Project }) {
 
       <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_18rem]">
         <aside className="space-y-4 lg:order-2 lg:sticky lg:top-28 lg:self-start">
-          <SidebarCard title="Links">
-            <ProjectLinks project={project} />
-          </SidebarCard>
+          {!project.hideLinks && (
+            <SidebarCard title="Links">
+              <ProjectLinks project={project} />
+            </SidebarCard>
+          )}
           <SidebarCard title="Technologies">
             <ul className="flex flex-wrap gap-1.5">
               {project.technologies.map((tech) => (
@@ -193,31 +195,33 @@ export function ProjectDetail({ project }: { project: Project }) {
             )}
           </DetailSection>
 
-          <DetailSection title="screenshots">
-            {project.screenshots.length > 0 ? (
-              <ul className="grid gap-4 sm:grid-cols-2">
-                {project.screenshots.map((src) => (
-                  <li
-                    key={src}
-                    className="relative aspect-video overflow-hidden rounded-2xl border border-border"
-                  >
-                    <Image
-                      src={src}
-                      alt={`${project.title} screenshot`}
-                      fill
-                      sizes="(min-width: 1024px) 420px, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover"
-                    />
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <PlaceholderBlock>
-                add screenshots to public/projects/{project.slug}/ and list them in
-                data/projects.ts
-              </PlaceholderBlock>
-            )}
-          </DetailSection>
+          {project.screenshots && (
+            <DetailSection title="screenshots">
+              {project.screenshots.length > 0 ? (
+                <ul className="grid gap-4 sm:grid-cols-2">
+                  {project.screenshots.map((src) => (
+                    <li
+                      key={src}
+                      className="relative aspect-video overflow-hidden rounded-2xl border border-border"
+                    >
+                      <Image
+                        src={src}
+                        alt={`${project.title} screenshot`}
+                        fill
+                        sizes="(min-width: 1024px) 420px, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <PlaceholderBlock>
+                  add screenshots to public/projects/{project.slug}/ and list them in
+                  data/projects.ts
+                </PlaceholderBlock>
+              )}
+            </DetailSection>
+          )}
 
           <DetailSection title="challenges">
             <TextOrPlaceholder

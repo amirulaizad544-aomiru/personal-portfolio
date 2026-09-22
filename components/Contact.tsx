@@ -13,13 +13,13 @@ const contacts = [
     Icon: Mail,
     hint: "add email in data/site.ts",
   },
-  {
-    label: "GitHub",
-    value: site.github,
-    href: site.github,
-    Icon: GithubIcon,
-    hint: "add GitHub URL in data/site.ts",
-  },
+  // {
+  //   label: "GitHub",
+  //   value: site.github,
+  //   href: site.github,
+  //   Icon: GithubIcon,
+  //   hint: "add GitHub URL in data/site.ts",
+  // },
   ...(site.phone
     ? [
         {
