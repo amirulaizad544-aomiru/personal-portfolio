@@ -28,37 +28,49 @@ export const skillGroups: SkillGroup[] = [
       "Java",
       "C++",
       "Dart",
-      "SQL",
-      "HTML5",
-      "CSS3",
     ],
   },
+
   {
     name: "Frontend",
     icon: Monitor,
-    items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Livewire", "HTML/CSS"],
+    items: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "HTML5",
+      "CSS3",
+      "Livewire",
+    ],
   },
+
   {
     name: "Backend",
     icon: Server,
-    items: ["Node.js", "PHP", "Laravel", "RESTful APIs", "JSON", "Livewire"],
+    items: [
+      "Laravel",
+      "RESTful APIs",
+    ],
   },
+
   {
     name: "Mobile",
     icon: Smartphone,
-    items: ["Flutter", "Dart"],
+    items: [
+      "Flutter",
+    ],
   },
+
   {
     name: "AI / Machine Learning",
     icon: Bot,
     items: [
-      "Gemini API",
       "RAG",
+      "AI API",
       "TensorFlow Lite",
-      "AI API integration",
-      "Prompt-based applications",
     ],
   },
+
   {
     name: "Cloud",
     icon: Cloud,
@@ -68,29 +80,30 @@ export const skillGroups: SkillGroup[] = [
       "Cloud Storage",
       "Cloud Run",
       "BigQuery",
-      "Artifact Registry",
-      "Secret Manager",
-      "Google APIs",
     ],
   },
+
   {
-    name: "Database / Backend Services",
+    name: "Database & Services",
     icon: Database,
-    items: ["MySQL", "Supabase", "Firebase", "phpMyAdmin"],
+    items: [
+      "MySQL",
+      "Supabase",
+      "Firebase",
+    ],
   },
+
   {
-    name: "Automation",
+    name: "Automation & Data",
     icon: Workflow,
     items: [
-      "Python",
       "Selenium",
       "Pandas",
-      "Browser automation",
-      "Google Extensions",
     ],
   },
+
   {
-    name: "Development Tools",
+    name: "Tools",
     icon: Wrench,
     items: [
       "Git",
@@ -98,20 +111,26 @@ export const skillGroups: SkillGroup[] = [
       "Bitbucket",
       "Docker",
       "Postman",
-      "Composer",
-      "SVN",
-      "Jupyter Notebook",
-      "IIS",
     ],
   },
+
   {
-    name: "Design & Creative",
+    name: "Design",
     icon: Palette,
-    items: ["Figma (UI/UX)", "Adobe Photoshop", "Adobe Illustrator"],
+    items: [
+      "Figma",
+      "Adobe Photoshop",
+      "Adobe Illustrator",
+    ],
   },
+
   {
     name: "Spoken Languages",
     icon: Languages,
-    items: ["English (Fluent)", "Malay (Native)", "German (Basic)"],
+    items: [
+      "English (Fluent)",
+      "Malay (Native)",
+      "German (Basic)",
+    ],
   },
 ];

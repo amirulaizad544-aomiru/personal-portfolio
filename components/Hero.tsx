@@ -1,14 +1,14 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MapPin } from "lucide-react";
+// import { ArrowRight, MapPin } from "lucide-react";
 import { Container } from "./Container";
 import { Portrait } from "./Portrait";
 import { Badge } from "./Section";
-import { Tag } from "./Tag";
+// import { Tag } from "./Tag";
 import { site } from "@/data/site";
 
-const stack = ["Next.js", "TypeScript", "Python", "Flutter", "Laravel", "Google Cloud"];
+// const stack = ["Next.js", "TypeScript", "Python", "Flutter", "Laravel", "Google Cloud"];
 
 /**
  * Frameless hero on the page background with a soft blue glow. With
@@ -85,8 +85,10 @@ export function Hero() {
             id="hero-title"
             className="mt-5 max-w-2xl text-balance text-3xl font-semibold leading-[1.1] tracking-tight sm:text-5xl max-lg:[@media(max-height:700px)]:text-2xl"
           >
-            Software Developer building practical software,{" "}
-            <span className="whitespace-nowrap text-accent">AI &amp; automation.</span>
+              Software Engineer 
+              <br />
+              Web, Mobile,{" "}
+              <span className="whitespace-nowrap text-accent">AI &amp; automation.</span>
           </h1>
 
           <p
@@ -94,35 +96,35 @@ export function Hero() {
               onImage ? "text-foreground/90" : "text-muted"
             }`}
           >
-            I&rsquo;m {site.name}. I build web applications, mobile
-            applications, AI-powered tools, and automation solutions, from
-            Flutter and Laravel apps to Gemini integrations and Google Cloud
-            automation.
+            I&rsquo;m {site.name}. a software developer passionate about building practical, scalable, and intelligent software solutions. I develop web and mobile applications, integrate AI capabilities, and automate workflows using modern technologies.
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
+            {site.resume && (
+              <a
+                href={site.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
+              >
+                My Resume
+              </a>
+            )}
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
-            >
-              View Projects
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
-            <Link
-              href="/#contact"
               className={`inline-flex items-center rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-surface ${
                 onImage ? "bg-background/60" : ""
               }`}
             >
-              Contact Me
+              View Projects
             </Link>
             <span
               className={`inline-flex items-center gap-1.5 text-sm max-lg:[@media(max-height:700px)]:hidden ${
                 onImage ? "text-foreground/90" : "text-muted"
               }`}
             >
-              <MapPin className="size-4" aria-hidden="true" />
-              Based in {site.location}
+              {/* <MapPin className="size-4" aria-hidden="true" />
+              Based in {site.location} */}
             </span>
           </div>
 

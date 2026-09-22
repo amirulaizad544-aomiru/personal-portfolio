@@ -39,6 +39,10 @@ export const site = {
   // preview in the Contact section (click opens `linkedin`). Put the file in
   // /public, e.g. "/assets/linkedin.png". While null, a placeholder shows.
   linkedinPreview: "/assets/linkedin.png",
+
+  // Résumé PDF, linked from the hero's "My Resume" button. Put the file in
+  // /public and set the path here. While null, the button is not shown.
+  resume: "/assets/Resume_Mohamad Amirul Aizad Roslee.pdf" as string | null,
 };
 
 export const navLinks: NavLink[] = [

@@ -19,6 +19,11 @@ const DEFAULT_RATIO = 0.75;
  *   images, Esc or a click outside to close).
  * With no images it shows a clearly marked placeholder row (`placeholderHint`
  * says where to add them). `accent` tints the placeholder tiles.
+ * `fixedSize` swaps the shape-proportioned tiles for a uniform frame size
+ * (photos are cropped with `object-cover` to fit).
+ * `priorityFirst` marks the first tile's image as a priority load — only pass
+ * this when the roll is actually visible on first paint (e.g. an
+ * already-open accordion), otherwise it just preloads an offscreen image.
  */
 export function PhotoRoll({
   images,
@@ -26,12 +31,16 @@ export function PhotoRoll({
   altPrefix,
   placeholderHint,
   accent = "#60a5fa",
+  fixedSize = false,
+  priorityFirst = false,
 }: {
   images: string[];
   label: string;
   altPrefix: string;
   placeholderHint: string;
   accent?: string;
+  fixedSize?: boolean;
+  priorityFirst?: boolean;
 }) {
   const track = useRef<HTMLUListElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
@@ -110,25 +119,46 @@ export function PhotoRoll({
               return (
                 <li
                   key={src}
-                  style={{ "--r": ratio } as CSSProperties}
-                  className="shrink-0 grow-[var(--r)] basis-[calc(var(--r)*22rem)] snap-start overflow-hidden rounded-xl border border-border bg-surface sm:basis-[calc(var(--r)*24rem)]"
+                  style={fixedSize ? undefined : ({ "--r": ratio } as CSSProperties)}
+                  className={
+                    fixedSize
+                      ? "relative h-56 w-72 shrink-0 snap-start overflow-hidden rounded-xl border border-border bg-surface sm:h-72 sm:w-96"
+                      : "shrink-0 grow-[var(--r)] basis-[calc(var(--r)*22rem)] snap-start overflow-hidden rounded-xl border border-border bg-surface sm:basis-[calc(var(--r)*24rem)]"
+                  }
                 >
                   <button
                     type="button"
                     onClick={() => setActive(index)}
                     aria-label={`View ${altPrefix} ${index + 1} full size`}
-                    className="block w-full cursor-zoom-in"
+                    className={
+                      fixedSize
+                        ? "relative block h-full w-full cursor-zoom-in"
+                        : "block w-full cursor-zoom-in"
+                    }
                   >
-                    <Image
-                      src={src}
-                      alt={`${altPrefix} ${index + 1}`}
-                      width={0}
-                      height={0}
-                      sizes="(min-width: 1024px) 30vw, 60vw"
-                      quality={90}
-                      onLoad={(event) => rememberRatio(src, event.currentTarget)}
-                      className="h-auto w-full"
-                    />
+                    {fixedSize ? (
+                      <Image
+                        src={src}
+                        alt={`${altPrefix} ${index + 1}`}
+                        fill
+                        sizes="(min-width: 640px) 24rem, 18rem"
+                        quality={90}
+                        priority={priorityFirst && index === 0}
+                        className="object-cover"
+                      />
+                    ) : (
+                      <Image
+                        src={src}
+                        alt={`${altPrefix} ${index + 1}`}
+                        width={0}
+                        height={0}
+                        sizes="(min-width: 1024px) 30vw, 60vw"
+                        quality={90}
+                        priority={priorityFirst && index === 0}
+                        onLoad={(event) => rememberRatio(src, event.currentTarget)}
+                        className="h-auto w-full"
+                      />
+                    )}
                   </button>
                 </li>
               );

@@ -30,7 +30,12 @@ export const highlights: HighlightGroup[] = [
     title: "Leadership & activities",
     // Add photos: put the files in public/assets/activities/ and list them here,
     // e.g. ["/assets/activities/hackathon.jpg", "/assets/activities/robotics.jpg"].
-    photos: [],
+    photos: ["/assets/pic/1.jpeg", 
+              "/assets/pic/2.jpeg", 
+              "/assets/pic/3.jpeg", 
+              "/assets/pic/4.jpeg", 
+              "/assets/pic/5.jpeg", 
+              "/assets/pic/6.jpeg"],
     sections: [
       {
         label: "2025",

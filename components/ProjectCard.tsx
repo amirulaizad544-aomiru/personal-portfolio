@@ -56,7 +56,7 @@ export function ProjectCard({
           {/* Keeps text legible over any cover image. */}
           <span
             aria-hidden="true"
-            className="absolute inset-0 bg-linear-to-t from-background via-background/85 to-background/10 sm:bg-linear-to-r sm:from-background sm:via-background/85 sm:to-transparent"
+            className="absolute inset-0 bg-linear-to-t from-background via-background/85 to-background/10 sm:bg-linear-to-r sm:from-background sm:via-background/80 sm:to-background/80"
           />
 
           <Container
@@ -129,9 +129,11 @@ export function ProjectCard({
         {/* `inert` keeps links in a collapsed panel out of the tab order. */}
         <div className="min-h-0 overflow-hidden" inert={!open}>
           <Container className="grid gap-8 py-10 md:grid-cols-5">
-            <div className="min-w-0 md:col-span-5">
-              <ScreenshotRoll project={project} />
-            </div>
+            {project.screenshots && (
+              <div className="min-w-0 md:col-span-5">
+                <ScreenshotRoll project={project} priority={open} />
+              </div>
+            )}
 
             <div className={project.architecture ? "md:col-span-3" : "md:col-span-5"}>
               {/* <p className="max-w-2xl leading-7 text-muted">{project.overview}</p> */}
@@ -190,17 +192,19 @@ export function ProjectCard({
               </div>
             )}
 
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 md:col-span-5">
-              <ProjectLinks project={project} />
-              {/* <Link
-                href={`/projects/${project.slug}`}
-                className="inline-flex items-center gap-1.5 text-sm font-medium hover:underline"
-                style={{ color: accent }}
-              >
-                Full project details
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link> */}
-            </div>
+            {!project.hideLinks && (
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3 md:col-span-5">
+                <ProjectLinks project={project} />
+                {/* <Link
+                  href={`/projects/${project.slug}`}
+                  className="inline-flex items-center gap-1.5 text-sm font-medium hover:underline"
+                  style={{ color: accent }}
+                >
+                  Full project details
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </Link> */}
+              </div>
+            )}
           </Container>
         </div>
       </div>

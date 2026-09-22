@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
-import { ProjectFilter } from "@/components/ProjectFilter";
+// import { ProjectFilter } from "@/components/ProjectFilter";
 import { Badge } from "@/components/Section";
-import { getAllProjects } from "@/lib/projects";
+// import { getAllProjects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -23,9 +23,9 @@ export default function ProjectsPage() {
           open a project to see more.
         </p>
       </Container>
-      <div className="mt-10">
+      {/* <div className="mt-10">
         <ProjectFilter projects={getAllProjects()} />
-      </div>
+      </div> */}
     </div>
   );
 }
