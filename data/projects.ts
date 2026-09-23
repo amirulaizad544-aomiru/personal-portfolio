@@ -93,8 +93,8 @@ export const projects: Project[] = [
     summary:
       "Web-based hostel registration and management system developed for UPSI, with individual and group registration, status tracking, an admin dashboard and role-based access.",
     technologies: ["Laravel", "Livewire", "PHP", "MySQL", "Spatie Roles & Permissions"],
-    image: null,
-    repoUrl: null,
+    image: "assets/khar-hostel-portal/hostel-cover.png",
+    repoUrl: "https://github.com/Aomiru/KHARHostelPortal.git",
     demoUrl: null,
 
     overview:
@@ -131,7 +131,11 @@ export const projects: Project[] = [
       { layer: "Data", detail: "MySQL." },
       { layer: "Access control", detail: "Spatie Roles & Permissions for roles and permissions." },
     ],
-    screenshots: [],
+    screenshots: [
+      "assets/khar-hostel-portal/hostel-5.png",
+      "assets/khar-hostel-portal/hostel-4.png",
+      "assets/khar-hostel-portal/hostel-3.png",
+    ],
     challenges: null,
     learned: null,
   },
@@ -185,7 +189,13 @@ export const projects: Project[] = [
       { layer: "OCR", detail: "Tesseract, used only when a PDF has no text layer." },
       { layer: "Retrieval", detail: "Local vector search with two indexes: main and resume." },
     ],
-    screenshots: null,
+    screenshots: [
+      "assets/khar-hostel-portal/hostel-5.png",
+      "assets/khar-hostel-portal/hostel-4.png",
+      "assets/khar-hostel-portal/hostel-3.png",
+      "assets/khar-hostel-portal/hostel-2.png",
+      "assets/khar-hostel-portal/hostel-1.png"
+    ],
     challenges: null,
     learned: null,
   },
