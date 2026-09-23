@@ -37,13 +37,15 @@ export function Hero() {
       {site.heroBackground && (
         <>
           {/*
-            Phones: the image fills the hero. Desktop: it is sized to 82% of the
-            hero height and pinned to the bottom right (so it is a bit smaller and
-            sits lower), then nudged right so the empty space on the image's right
-            side falls off-screen. Change `lg:h-[82%]` to make it bigger/smaller
-            and `lg:translate-x-[14%]` to move it left/right.
+            Phones: the image fills the hero, nudged down a little from the
+            top (under the navbar) via `top-10`. Desktop: it is sized to 82%
+            of the hero height and pinned to the bottom right (so it is a bit
+            smaller and sits lower), then nudged right so the empty space on
+            the image's right side falls off-screen. Change `lg:h-[82%]` to
+            make it bigger/smaller and `lg:translate-x-[14%]` to move it
+            left/right.
           */}
-          <div className="absolute inset-0 lg:inset-auto lg:bottom-0 lg:right-0 lg:aspect-[3/1] lg:h-[82%] lg:translate-x-[1%]">
+          <div className="absolute inset-x-0 top-10 bottom-0 lg:inset-auto lg:bottom-0 lg:right-0 lg:aspect-[3/1] lg:h-[82%] lg:translate-x-[1%]">
             <Image
               src={site.heroBackground}
               alt=""
@@ -75,7 +77,7 @@ export function Hero() {
         </>
       )}
 
-      <Container className="relative grid items-center gap-6 pb-8 pt-24 lg:grid-cols-[1fr_auto] lg:gap-16">
+      <Container className="relative grid items-center gap-6 pb-8 pt-98 lg:grid-cols-[1fr_auto] lg:gap-16 lg:pt-24">
         <Portrait className="lg:order-2" />
 
         <div className="lg:order-1">
@@ -111,7 +113,7 @@ export function Hero() {
               </a>
             )}
             <Link
-              href="/projects"
+              href="#projects"
               className={`inline-flex items-center rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-surface ${
                 onImage ? "bg-background/60" : ""
               }`}

@@ -56,7 +56,7 @@ export function ProjectCard({
           {/* Keeps text legible over any cover image. */}
           <span
             aria-hidden="true"
-            className="absolute inset-0 bg-linear-to-t from-background via-background/85 to-background/10 sm:bg-linear-to-r sm:from-background sm:via-background/80 sm:to-background/80"
+            className="absolute inset-0 bg-linear-to-t from-background via-background/85 to-background/80 sm:bg-linear-to-r sm:from-background sm:via-background/80 sm:to-background/80"
           />
 
           <Container
