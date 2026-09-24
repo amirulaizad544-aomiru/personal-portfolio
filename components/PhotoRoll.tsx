@@ -132,8 +132,8 @@ export function PhotoRoll({
                   style={fixedSize ? undefined : ({ "--r": ratio } as CSSProperties)}
                   className={
                     fixedSize
-                      ? "relative h-56 w-72 shrink-0 snap-start overflow-hidden rounded-xl border border-border bg-surface sm:h-72 sm:w-96"
-                      : "shrink-0 grow-[var(--r)] basis-[calc(var(--r)*22rem)] snap-start overflow-hidden rounded-xl border border-border bg-surface sm:basis-[calc(var(--r)*24rem)]"
+                      ? "relative h-56 w-72 shrink-0 snap-start overflow-hidden rounded-xl border border-border bg-surface transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg sm:h-72 sm:w-96"
+                      : "shrink-0 grow-[var(--r)] basis-[calc(var(--r)*22rem)] snap-start overflow-hidden rounded-xl border border-border bg-surface transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg sm:basis-[calc(var(--r)*24rem)]"
                   }
                 >
                   <button
@@ -216,7 +216,7 @@ export function PhotoRoll({
           {(expanded ? images : images.slice(0, EXPAND_THRESHOLD)).map((src, index) => (
             <li
               key={src}
-              className="relative aspect-square overflow-hidden rounded-xl border border-border bg-surface"
+              className="relative aspect-square overflow-hidden rounded-xl border border-border bg-surface transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg"
             >
               <button
                 type="button"

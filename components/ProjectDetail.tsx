@@ -32,7 +32,7 @@ function SidebarCard({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-2xl border border-border bg-surface p-5">
+    <section className="rounded-2xl border border-border bg-surface p-5 transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg">
       <h2 className="text-sm font-semibold">{title}</h2>
       <div className="mt-3">{children}</div>
     </section>

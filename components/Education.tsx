@@ -9,7 +9,7 @@ export function Education() {
         {education.map((item, index) => (
           <li
             key={item.institution}
-            className={`rounded-2xl border border-border bg-background p-6 text-left ${
+            className={`rounded-2xl border border-border bg-background p-6 text-left transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg ${
               index === 0 ? "md:col-span-2" : ""
             }`}
           >
@@ -43,7 +43,7 @@ export function Education() {
         {highlights.map((group) => (
           <li
             key={group.title}
-            className="rounded-2xl border border-border bg-background p-6 text-left"
+            className="rounded-2xl border border-border bg-background p-6 text-left transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg"
           >
             <h3 className="font-semibold">{group.title}</h3>
             <div
