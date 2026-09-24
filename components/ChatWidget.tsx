@@ -20,12 +20,27 @@ export function ChatWidget() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6">
+    <>
+      {/* Mobile-only backdrop overlay (click to close) */}
+      {open && (
+        <div 
+          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm sm:hidden"
+          onClick={() => setOpen(false)} 
+        />
+      )}
+
+      {/* Chat Window Container */}
       {open && (
         <div
           role="dialog"
           aria-label="Chat with Amirul's portfolio assistant"
-          className="fixed inset-4 z-50 flex flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-[0_8px_30px_-12px_rgb(0_0_0/0.6)] sm:absolute sm:inset-auto sm:bottom-16 sm:right-0 sm:h-[600px] sm:w-[380px]"
+          className="
+            /* Mobile styles: Centered & smaller */
+            fixed top-1/2 left-1/2 z-50 flex h-[500px] w-[88vw] max-w-[360px] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-[0_8px_30px_-12px_rgb(0_0_0/0.6)]
+            
+            /* Web/Desktop styles (sm and above): Fixed to bottom-right */
+            sm:absolute sm:top-auto sm:left-auto sm:bottom-20 sm:right-6 sm:h-[600px] sm:w-[380px] sm:translate-x-0 sm:translate-y-0
+          "
         >
           {hasOpened && (
             <iframe
@@ -37,12 +52,13 @@ export function ChatWidget() {
         </div>
       )}
 
+      {/* Launcher Button (Fixed at Bottom-Right for both) */}
       <button
         type="button"
         onClick={toggle}
         aria-label={open ? "Close chat" : "Open chat with portfolio assistant"}
         aria-expanded={open}
-        className="flex size-14 items-center justify-center rounded-full bg-accent text-background shadow-[0_8px_30px_-12px_rgb(0_0_0/0.6)] transition-transform hover:scale-105"
+        className="fixed bottom-4 right-4 z-50 flex size-14 items-center justify-center rounded-full bg-accent text-background shadow-[0_8px_30px_-12px_rgb(0_0_0/0.6)] transition-transform hover:scale-105 sm:bottom-6 sm:right-6"
       >
         {open ? (
           <X className="size-6" aria-hidden="true" />
@@ -50,6 +66,6 @@ export function ChatWidget() {
           <MessageCircle className="size-6" aria-hidden="true" />
         )}
       </button>
-    </div>
+    </>
   );
 }
