@@ -13,7 +13,7 @@ export function Experience() {
               aria-hidden="true"
               className="absolute -left-[31px] top-7 size-3 rounded-full border-2 border-background bg-accent ring-1 ring-border"
             />
-            <div className="rounded-2xl border border-border bg-background p-6">
+            <div className="rounded-2xl border border-border bg-background p-6 transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
                 <h3 className="font-semibold">
                   {job.role} ·{" "}

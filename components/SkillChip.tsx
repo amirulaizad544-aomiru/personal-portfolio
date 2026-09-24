@@ -5,7 +5,7 @@ export function SkillChip({ name }: { name: string }) {
   const skill = skillIcons[name];
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-2.5 py-1 text-xs font-medium text-muted">
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-2.5 py-1 text-xs font-medium text-muted transition-colors duration-150 hover:border-accent hover:bg-accent/10 hover:text-foreground">
       {skill?.kind === "brand" && (
         <svg
           viewBox="0 0 24 24"

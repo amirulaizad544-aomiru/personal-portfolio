@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp, X } from "lucide-react";
 
 const PLACEHOLDER_TILES = 3;
 /** Shape (width / height) assumed for an image until it has loaded. */
 const DEFAULT_RATIO = 0.75;
+/** Beyond this many photos, a scrolling row gets unwieldy — offer a grid view instead. */
+const EXPAND_THRESHOLD = 3;
 
 /**
  * Row of images that always spans the full width.
@@ -47,6 +49,10 @@ export function PhotoRoll({
   const [canScroll, setCanScroll] = useState(false);
   const [ratios, setRatios] = useState<Record<string, number>>({});
   const [active, setActive] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState(false);
+  // The grid expand view is only for the fixed-size "camera roll" style galleries
+  // (e.g. Education photos) — project screenshot rolls keep their original frame.
+  const canExpand = fixedSize && images.length > EXPAND_THRESHOLD;
 
   const rememberRatio = (src: string, img: HTMLImageElement) => {
     if (!img.naturalWidth || !img.naturalHeight) return;
@@ -101,7 +107,7 @@ export function PhotoRoll({
   const arrow =
     "absolute top-1/2 z-10 size-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-lg transition-colors hover:bg-surface";
   // Phones swipe, so the arrows are for wider screens and only when there is more to see.
-  const arrowVisibility = canScroll ? "hidden sm:inline-flex" : "hidden";
+  const arrowVisibility = canScroll && !canExpand ? "hidden sm:inline-flex" : "hidden";
   const lightboxButton =
     "absolute z-10 inline-flex size-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white transition-colors hover:bg-black/80";
 
@@ -111,7 +117,11 @@ export function PhotoRoll({
         ref={track}
         tabIndex={0}
         aria-label={label}
-        className="flex snap-x snap-mandatory items-start gap-4 overflow-x-auto scroll-smooth pb-3 [scrollbar-width:thin]"
+        className={
+          canExpand
+            ? "hidden"
+            : "flex snap-x snap-mandatory items-start gap-4 overflow-x-auto scroll-smooth pb-3 [scrollbar-width:thin]"
+        }
       >
         {images.length > 0
           ? images.map((src, index) => {
@@ -122,8 +132,8 @@ export function PhotoRoll({
                   style={fixedSize ? undefined : ({ "--r": ratio } as CSSProperties)}
                   className={
                     fixedSize
-                      ? "relative h-56 w-72 shrink-0 snap-start overflow-hidden rounded-xl border border-border bg-surface sm:h-72 sm:w-96"
-                      : "shrink-0 grow-[var(--r)] basis-[calc(var(--r)*22rem)] snap-start overflow-hidden rounded-xl border border-border bg-surface sm:basis-[calc(var(--r)*24rem)]"
+                      ? "relative h-56 w-72 shrink-0 snap-start overflow-hidden rounded-xl border border-border bg-surface transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg sm:h-72 sm:w-96"
+                      : "shrink-0 grow-[var(--r)] basis-[calc(var(--r)*22rem)] snap-start overflow-hidden rounded-xl border border-border bg-surface transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg sm:basis-[calc(var(--r)*24rem)]"
                   }
                 >
                   <button
@@ -200,6 +210,53 @@ export function PhotoRoll({
       >
         <ChevronRight className="size-5" aria-hidden="true" />
       </button>
+
+      {canExpand && (
+        <ul aria-label={label} className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+          {(expanded ? images : images.slice(0, EXPAND_THRESHOLD)).map((src, index) => (
+            <li
+              key={src}
+              className="relative aspect-square overflow-hidden rounded-xl border border-border bg-surface transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg"
+            >
+              <button
+                type="button"
+                onClick={() => setActive(index)}
+                aria-label={`View ${altPrefix} ${index + 1} full size`}
+                className="block h-full w-full cursor-zoom-in"
+              >
+                <Image
+                  src={src}
+                  alt={`${altPrefix} ${index + 1}`}
+                  fill
+                  sizes="(min-width: 640px) 33vw, 50vw"
+                  quality={90}
+                  className="object-cover"
+                />
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {canExpand && (
+        <button
+          type="button"
+          onClick={() => setExpanded((current) => !current)}
+          className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-foreground"
+        >
+          {expanded ? (
+            <>
+              Show fewer photos
+              <ChevronUp className="size-4" aria-hidden="true" />
+            </>
+          ) : (
+            <>
+              Show all {images.length} photos
+              <ChevronDown className="size-4" aria-hidden="true" />
+            </>
+          )}
+        </button>
+      )}
 
       <dialog
         ref={dialog}

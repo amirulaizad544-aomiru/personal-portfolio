@@ -14,7 +14,7 @@ export function ProjectCover({ project }: { project: Project }) {
         fill
         sizes="100vw"
         quality={90}
-        className="object-cover"
+        className="object-cover transition-transform duration-500 group-hover:scale-105"
         loading="eager"
       />
     );

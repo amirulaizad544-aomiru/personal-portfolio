@@ -57,7 +57,7 @@ export function Contact() {
                   {...(/^(mailto|tel):/.test(href)
                     ? {}
                     : { target: "_blank", rel: "noopener noreferrer" })}
-                  className="flex items-center gap-3 rounded-2xl border border-border bg-surface p-4 transition-colors hover:border-accent/60"
+                  className="flex items-center gap-3 rounded-2xl border border-border bg-surface p-4 transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg"
                 >
                   <Icon className="size-5 shrink-0 text-accent" aria-hidden="true" />
                   <span className="min-w-0">

@@ -34,7 +34,7 @@ export function About() {
           </p>
         </div>
 
-        <aside className="rounded-2xl border border-accent/15 bg-accent/5 p-6 md:col-span-2">
+        <aside className="rounded-2xl border border-accent/15 bg-accent/5 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg md:col-span-2">
           <h3 className="font-semibold">Looking for</h3>
           <p className="mt-3 text-sm leading-6 text-muted">
             My current role has given me valuable experience, but I am looking
