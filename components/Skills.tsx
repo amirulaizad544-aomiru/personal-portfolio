@@ -15,7 +15,7 @@ export function Skills() {
         {skillGroups.map(({ name, icon: Icon, items }) => (
           <li
             key={name}
-            className="rounded-2xl border border-border bg-background p-6 text-left"
+            className="rounded-2xl border border-border bg-background p-6 text-left transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg"
           >
             <h3 className="flex items-center gap-3 font-semibold">
               <span className="inline-flex size-9 items-center justify-center rounded-full bg-accent/10 text-accent">
