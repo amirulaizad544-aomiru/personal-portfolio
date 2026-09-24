@@ -27,7 +27,7 @@ export const education: Education[] = [
 
 export const highlights: HighlightGroup[] = [
   {
-    title: "Leadership & activities",
+    title: "Leadership & Activities",
     // Add photos: put the files in public/assets/activities/ and list them here,
     // e.g. ["/assets/activities/hackathon.jpg", "/assets/activities/robotics.jpg"].
     photos: ["/assets/pic/1.jpeg", 
@@ -35,7 +35,17 @@ export const highlights: HighlightGroup[] = [
               "/assets/pic/3.jpeg", 
               "/assets/pic/4.jpeg", 
               "/assets/pic/5.jpeg", 
-              "/assets/pic/6.jpeg"],
+              "/assets/pic/6.jpeg",
+              "/assets/pic/7.jpeg",
+              "/assets/pic/8.jpeg",
+              "/assets/pic/9.jpeg",
+              "/assets/pic/10.jpg",
+              "/assets/pic/11.jpg",
+              "/assets/pic/12.jpg",
+              "/assets/pic/13.jpg",
+              "/assets/pic/14.jpg",
+              "/assets/pic/15.jpg",
+            ],
     sections: [
       {
         label: "2025",

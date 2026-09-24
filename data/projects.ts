@@ -41,8 +41,8 @@ export const projects: Project[] = [
       "A Flutter mobile app that recognises species using an on-device TensorFlow Lite model (so it works offline) and shows relevant biodiversity information, uses Gemini for learning prompts and Q&A, and adds quests, journals, quizzes, badges and XP to keep learners engaged.",
     features: [
       "Flora and fauna recognition",
-      "Offline species recognition using TensorFlow Lite",
-      "Gemini-powered learning prompts and Q&A",
+      "Species recognition with AI",
+      "Gemini-powered learning and Q&A",
       "AR species information",
       "Quests",
       "Learning journals",
@@ -57,7 +57,7 @@ export const projects: Project[] = [
       "Daily and weekly activities",
       "Leaderboard",
       "QR functionality",
-      "Tutorial / onboarding system",
+      "Tutorial / Onboarding system",
     ],
     contribution:
       "Developed EcoQuest as my degree final year project: the Flutter app, its AI-powered species recognition and biodiversity information, and the gamified learning features (quizzes, achievements and digital species collections).",
@@ -106,13 +106,12 @@ export const projects: Project[] = [
     features: [
       "Student registration",
       "Individual and group registrations",
-      "Automated group registration workflows",
+      "Automated group registration",
       "Status tracking",
-      "Administrative dashboard for hostel management",
+      "Admin administrative dashboard",
       "Role-based access",
-      "Separate student and admin interfaces",
-      "Room capacity management (example structure: 4 rooms, 12 students per house)",
-      "Block-specific eligibility rules, such as male-only blocks",
+      "Room capacity management",
+      "Block-specific eligibility and rules",
     ],
     demonstrates: [
       "CRUD development",
@@ -130,6 +129,14 @@ export const projects: Project[] = [
       { layer: "UI", detail: "Livewire components for the student and admin interfaces." },
       { layer: "Data", detail: "MySQL." },
       { layer: "Access control", detail: "Spatie Roles & Permissions for roles and permissions." },
+      {
+        layer: "Student workflow",
+        detail: "Create a group and invite members for a room registration.",
+      },
+      {
+        layer: "Admin workflow",
+        detail: "Review, approve group registrations and assign rooms. Track status and manage student capacity.",
+      },
     ],
     screenshots: [
       "/assets/khar-hostel-portal/hostel-5.png",
@@ -167,7 +174,7 @@ export const projects: Project[] = [
     solution:
       "A Python RAG pipeline with a CLI and a streaming Next.js chat UI. Your resume is kept in its own memory, separate from other uploaded PDFs, and an LLM router decides per-question whether to pull the resume in for comparison. PDFs are chunked by their own section headers, embedded locally, and cached to disk so re-embedding only happens when a PDF changes; scanned PDFs fall back to OCR automatically.",
     features: [
-      "Compares documents against the resume, e.g. checking whether an offer suits",
+      "Compares documents against the resume",
       "Streaming answers as tokens arrive, instead of waiting for the full response",
       "OCR fallback for scanned PDFs with no text layer",
       "Section-aware chunking by each PDF's own headers",
@@ -184,10 +191,13 @@ export const projects: Project[] = [
     architecture: [
       { layer: "Backend", detail: "Python with FastAPI." },
       { layer: "Frontend", detail: "Next.js chat UI with streaming answers." },
-      { layer: "Embedding", detail: "sentence-transformers, run locally." },
-      { layer: "Generation", detail: "Gemini API, also used for memory routing." },
-      { layer: "OCR", detail: "Tesseract, used only when a PDF has no text layer." },
+      { layer: "OCR, Embedding, Generation", detail: "Tesseract, Sentence-transformers, Gemini API." },
       { layer: "Retrieval", detail: "Local vector search with two indexes: main and resume." },
+      {
+        layer: "Workflow",
+        detail:
+          "PDFs are chunked by their own section headers, embedded locally, and cached to disk so re-embedding only happens when a PDF changes; scanned PDFs fall back to OCR automatically.",
+      }
     ],
     screenshots: null,
     challenges: null,
@@ -217,10 +227,8 @@ export const projects: Project[] = [
       "A multi-service pipeline that can audit multiple projects at once without timing out, and handles cleanup safely by keeping essential resources (like the active revision) while flagging the rest for review.",
     features: [
       "Scans Google Cloud projects for unused or forgotten resources",
-      "Finds old Cloud Run revisions",
-      "Finds orphaned storage folders",
-      "Finds unused container images",
       "Audits multiple projects at once without timing out",
+      "Finds old Cloud Run revisions, orphaned storage folders and unused container images",
       "Keeps essential resources (like the active revision) and flags the rest for review",
     ],
     contribution: null,
@@ -240,6 +248,11 @@ export const projects: Project[] = [
         detail:
           "Keeps essential resources (such as the active revision) and flags the rest for review.",
       },
+      {
+        layer: "Workflow",
+        detail:
+          "Run automated bi-weekly scans projects, identifies unused resources, and generates a report for review (Gmail) and cleanup (Google Sheets).",
+      }
     ],
     screenshots: null,
     challenges: null,
