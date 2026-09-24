@@ -27,7 +27,7 @@ export const projects: Project[] = [
       "Supabase",
       "Google Sign-In",
     ],
-    image: "/assets/ecoquest/ecoquest-cover.jpg",
+    image: "/assets/ecoquest/ecoquest-cover.png",
     repoUrl: "https://github.com/Aomiru/EcoQuest",
     demoUrl: "https://drive.google.com/drive/folders/18ubm61p2zJ6dTxdP3EfYHsN69cG78eGc?usp=sharing",
     demoLabel: "Download APK",
