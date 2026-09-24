@@ -27,7 +27,7 @@ export function ScrollPreview({
 }) {
   return (
     <figure>
-      <div className="group relative overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_20px_60px_-30px_rgb(0_0_0/0.8)]">
+      <div className="group relative overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_20px_60px_-30px_rgb(0_0_0/0.8)] transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg">
         <div className="flex items-center gap-3 border-b border-border bg-background/60 px-4 py-2.5">
           <span className="flex gap-1.5" aria-hidden="true">
             <span className="size-2.5 rounded-full bg-border" />
